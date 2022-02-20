@@ -1,0 +1,18 @@
+<article class="feed-article" #top>
+
+    <ng-container *ngIf="article">
+        <div class="feed-article__header">
+            <i class="fa fa-arrow-left" [routerLink]="['/']"></i>
+            <h1>{{article.title}}</h1>
+        </div>
+    
+        <div class="feed-article__data">
+            <span *ngIf="article.author"><b>Autor: </b>{{article.author}}</span>
+            <span *ngIf="article.pubDate"><b>Publicado: </b>{{article.pubDate | date:'dd/MM/yyyy hh:mm'}}</span>
+            <span *ngIf="article.link"><b>Fuente: </b><a [href]="article.link">Link</a></span>
+        </div>
+    
+        <div class="feed-article__content" [innerHTML]="article.content | safeHtmlPipe" *ngIf="article.content"></div>
+    </ng-container>
+    
+</article>
