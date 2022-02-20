@@ -14,11 +14,7 @@ registerLocaleData(localeEs);
   ],
   providers: [
     { provide: localeEs, useValue: "es" },
-    {
-			provide: HTTP_INTERCEPTORS,
-			useClass: AuthInterceptorService,
-			multi: true,
-		}
+
   ]
 })
 export class CoreModule { }
