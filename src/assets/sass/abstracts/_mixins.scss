@@ -1,0 +1,80 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin absBottomLeft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin boxShadow {
+    -webkit-box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
+}
+
+@mixin flexRowCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexColumnCenter {
+    @include flexRowCenter;
+    flex-direction: column;
+}
+
+@mixin clamp($lines) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines; /* number of lines to show */
+    line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+/*
+Breakpoint argument choices
+- phone
+- tab-port
+- tab-land 
+- big-desktop
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        // 600px
+        @media (max-width: 40em) {
+            @content;
+        } // content uses block of code
+    }
+    @if $breakpoint == tab-port {
+        // 900px
+        @media (max-width: 65em) {
+            @content;
+        } // content uses block of code
+    }
+    @if $breakpoint == tab-land {
+        // 1200px
+        @media (max-width: 85em) {
+            @content;
+        } // content uses block of code
+    }
+    @if $breakpoint == big-desktop {
+        // 1800px
+        @media (min-width: 112.5em) {
+            @content;
+        } // content uses block of code
+    }
+}
