@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 @NgModule({
   declarations: [
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    FilterPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    FilterPipe
   ],
   providers: []
 })

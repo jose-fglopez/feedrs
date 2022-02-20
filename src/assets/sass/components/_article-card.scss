@@ -13,7 +13,6 @@
     }
 
     &__category {
-        color: $color-gray-light;
         @include clamp(1);
     }
 
@@ -25,13 +24,11 @@
 
     &__date {
         text-align: end;
-        color: $color-gray-light;
     }
 
     &__description {
         grid-column: 2/-1;
         @include clamp(2);
-        color: $color-gray-light;
     }
 
 }

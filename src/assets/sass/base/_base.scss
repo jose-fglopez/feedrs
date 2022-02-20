@@ -43,7 +43,7 @@ body {
 
 body {
   @include flexRowCenter;
-  padding: 3rem;
+  padding: 6rem;
 
   @include respond(tab-port){
     padding: 0;

@@ -1,5 +1,10 @@
+<div class="search-bar">
+    <i class="fa fa-search"></i>
+    <input type="text" placeholder="Buscar..." [(ngModel)] = searchTerm>
+</div>
+
 <section class="articles">
-    <article class="article-card" *ngFor="let article of articles" [routerLink]="['/article', article.id]">
+    <article class="article-card" *ngFor="let article of articles | filter:searchTerm " [routerLink]="['/article', article.id]">
         <div class="img article-card__img"> 
             <img *ngIf="article.img; else default" [src]="article.img">
             <ng-template #default>
