@@ -1,0 +1,32 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: unset;
+    border-radius: $default-border-radius;
+    outline-color: $color-primary;
+    background-color: $color-white;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+input[type="submit"] {
+    background-color: $color-primary;
+    color: $color-white;
+    font-weight: 600;
+    cursor: pointer;
+    width: min-content;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+

@@ -1,0 +1,19 @@
+<section class="new-feed">
+    <h2>Añadir feed</h2>
+    <form [formGroup]="feedForm" (ngSubmit)="onSubmit()">
+
+        <div class="field">
+            <label for="first-name">Nombre</label>
+            <input id="first-name" type="text" formControlName="title">
+        </div>
+
+        <div class="field">
+            <label for="last-name">Link</label>
+            <input id="last-name" type="text" formControlName="link">
+
+        </div>
+        
+        <input type="submit" value="Añadir">
+
+    </form>
+</section>

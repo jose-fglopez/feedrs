@@ -1,0 +1,12 @@
+<section class="feeds">
+    <h2>Feeds</h2>
+    <ul class="sources">
+        <li class="source" *ngFor="let source of sources">
+            <span class="source__title">{{ source.title }}</span>
+            <div class="source__number">
+                <span>{{getArticlesBySource(source).length}}</span>
+                <i class="fa fa-trash" (click)="deleteSource(source)"></i>
+            </div>
+        </li>
+    </ul>
+</section>

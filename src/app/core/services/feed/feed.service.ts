@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CORS_PROXY, REFRESH_TIME } from '@core/core.constants';
 import { Article } from '@shared/interfaces/article';
 import { Feed, FeedResponse, FeedSource } from '@shared/interfaces/feed';
-import { Observable, concatMap, BehaviorSubject, takeLast, take } from 'rxjs';
+import { Observable, concatMap, BehaviorSubject, take } from 'rxjs';
 import * as uuid from 'uuid';
 import { parseFeed, parseFeedToArticle } from './feed-parser-utils';
 
@@ -63,19 +63,13 @@ export class FeedService {
   /**  
  * Gets the rss xml contents using an HTTP request to the provided source
  * @param {FeedSource} source - Feed response object to parse
+ * @returns {Observable<Feed>} - Observable that contains the feed
  */
-  getFeed(source: FeedSource): void {
-    this.http.get<FeedResponse>(CORS_PROXY + encodeURIComponent(source.link))
+  getFeed(source: FeedSource): Observable<Feed> {
+    return this.http.get<FeedResponse>(CORS_PROXY + encodeURIComponent(source.link))
       .pipe(
         concatMap(parseFeed),
-        take(1)
-      )
-      .subscribe({
-        next: (feed: Feed) => this.updateArticles(feed, source),
-        error: (e) => {
-          console.error(e)
-        }
-      });
+      );
   }
 
   /**  
@@ -122,10 +116,72 @@ export class FeedService {
 
     if (force || !this.articles || !refreshDate || new Date() >= refreshDate) {
       for (let source of this.sources) {
-        this.getFeed(source);
+        this.getFeed(source)
+          .pipe(
+            take(1)
+          )
+          .subscribe({
+            next: (feed: Feed) => this.updateArticles(feed, source),
+            error: (e) => {
+              console.error(e)
+            }
+          });;
       }
       this.lastUpdate = new Date();
       localStorage.setItem("lastUpdate", JSON.stringify(this.lastUpdate));
+    }
+
+  }
+
+  /**  
+   * Adds a rss source to the sources subject.
+   * @param {FeedSource} source - Source to be added
+   */
+  addSource(source: FeedSource) {
+
+    const index = this.sources.findIndex(el => el.link === source.link);
+
+    if (index < 0) {
+
+      // Check if source is valid
+      this.getFeed(source)
+        .pipe(
+          take(1)
+        )
+        .subscribe({
+          next: (feed: Feed) => {
+            // Valid feed
+            let sources: FeedSource[] = this.sources;
+            sources.push(source);
+            this.sources = sources;
+            this.updateFeed(true);
+          },
+          error: (e) => {
+            console.error("Invalid feed")
+          }
+        });;
+
+    }
+
+  }
+
+
+  /**  
+   * Removes a rss source to the sources subject.
+   * @param {FeedSource} source - Source to be removed
+   */
+  deleteSource(source: FeedSource) {
+
+    const index = this.sources.findIndex(el => el.link === source.link);
+
+    if (index >= 0) {
+
+      let sources: FeedSource[] = this.sources;
+      sources.splice(index, 1);
+      this.sources = sources;
+      let articles = this.articles.filter(article => article.source.link !== source.link);
+      this.articles = articles;
+
     }
 
   }

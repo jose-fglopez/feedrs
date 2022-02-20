@@ -1,6 +1,7 @@
 main {
-
     display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas: "menu content";
     border-radius: $default-border-radius;
     overflow: auto;
     position: relative;
@@ -9,9 +10,33 @@ main {
     width: 100%;
     @include boxShadow;
 
+    @include respond(tab-port) {
+        display: block;
+
+        &.menu-active {
+            .menu {
+                left: 0;
+            }
+            .content {
+                left: 100%;
+            }
+        }
+
+        .menu {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: -100%;
+        }
+        .content {
+            position: absolute;
+            left: 0;
+        }
+    }
 }
 
 .content {
+    grid-area: content;
     overflow-y: auto;
     position: relative;
     width: 100%;
