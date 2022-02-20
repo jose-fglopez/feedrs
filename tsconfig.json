@@ -21,7 +21,14 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+			"@assets/*": ["./src/assets/*"],
+			"@modules/*": ["./src/app/modules/*"],
+			"@core/*": ["./src/app/core/*"],
+			"@environments/*": ["./src/environments/*"],
+			"@shared/*": ["./src/app/shared/*"]
+		}
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

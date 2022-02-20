@@ -1,0 +1,16 @@
+<main [ngClass]="{'menu-active': menuActive}">    
+    
+    <aside class="menu">
+        <app-add-feed></app-add-feed>
+        <app-feed-list></app-feed-list>
+    </aside>
+    
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+
+    <button class="btn circle-btn menu-button" (click)="menuActive = !menuActive">
+        <i class="fa fa-bars"></i>
+    </button>
+    
+</main>

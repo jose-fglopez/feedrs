@@ -1,27 +1,36 @@
 # Feedrs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+Simple RSS reader made for a technical interview.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+What things you need to install the software and how to install them.
 
-## Code scaffolding
+* [Install Node.js](https://nodejs.org/en/).
+* Install [Angular CLI: 13.2.4](https://www.npmjs.com/package/@angular/cli/v/13.2.4).
+  * Run `npm install -g @angular/cli` to install Globally or `npm install @angular/cli` to install locally. To install Install Specific Version (Example: 13.2.4) `npm install -g @angular/cli@13.2.4`.
+* Clone this project repository.
+* Run `npm install` from project directory.
+* Run `ng s --open` to open the project automatically in the url `http://localhost:4200`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Built With
 
-## Build
+* Angular CLI: 13.2.4
+* Angular: 13.2.3
+* xml2js: 0.4.23
+* uuid: 8.3.2
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
+* Add and remove RSS feeds
+* Parse contents of the articles provided by the feeds
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+* **Jose Francisco García López** - [Github](https://github.com/jose-fglopez)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
+This project is licensed under the MIT License.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Copyright (c) 2022 **Jose Francisco García López**

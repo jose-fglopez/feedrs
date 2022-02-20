@@ -1,0 +1,44 @@
+.feed-article {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 2rem;
+
+        i {
+            font-size: 1rem;
+            color: $color-primary;
+            cursor: pointer;
+        }
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__content {
+        line-height: 1.5;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 1rem;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+    }
+}
+

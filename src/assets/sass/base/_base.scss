@@ -1,0 +1,84 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+
+  font-size: 100%;
+
+  @include respond(phone) {
+    font-size: 90%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 120%;
+  }
+}
+
+html,
+body {
+  box-sizing: border-box;
+  background-color: $color-primary;
+  color: $font-color;
+  font-family: $font-family;
+
+  /* Height and width fallback for older browsers. */
+  height: 100%;
+  width: 100%;
+
+  /* Set the height to match that of the viewport. */
+  height: 100vh;
+
+  /* Set the width to match that of the viewport. */
+  width: 100vw;
+
+  /* Remove any browser-default margins. */
+  margin: 0;
+
+}
+
+body {
+  @include flexRowCenter;
+  padding: 6rem;
+
+  @include respond(tab-port){
+    padding: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0rem;
+
+  li {
+    a {
+      text-decoration: none !important;
+      color: inherit;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+i{
+  color: $color-primary;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: $default-border-radius;
+}

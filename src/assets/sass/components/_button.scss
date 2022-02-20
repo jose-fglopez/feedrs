@@ -1,0 +1,30 @@
+.menu-button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 10;
+    display: none;
+
+    @include respond(tab-port) {
+        display: block;
+    }
+}
+
+.btn {
+
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    cursor: pointer; 
+
+    &.circle-btn {
+        border-radius: 50%;
+        height:3rem;
+        width:3rem;
+        @include boxShadow;
+        i{
+            font-size: 1.2rem;
+            color: $color-white;
+        }
+    }
+}

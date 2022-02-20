@@ -1,0 +1,23 @@
+.sources {
+    .source {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.4rem 0;
+        font-weight: bold;
+
+        &__title {
+            flex: 1;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &__number {
+            color: $color-gray-light;
+            display: flex;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}
