@@ -1,0 +1,15 @@
+<section class="articles">
+    <article class="article-card" *ngFor="let article of articles">
+        <div class="img article-card__img"> 
+            <img *ngIf="article.img; else default" [src]="article.img">
+            <ng-template #default>
+                <img src="assets/img/default.jpg">
+            </ng-template>
+        </div>
+        <p class="article-card__category">{{article.source.title}}</p>
+        <p class="article-card__date">{{article.pubDate | date:'dd/MM/yyyy' }}</p>
+        <h3 class="article-card__title">{{article.title}}</h3>
+        <p class="article-card__description">{{article.description}}</p>
+    </article>
+</section> 
+
