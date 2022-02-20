@@ -44,12 +44,10 @@ body {
 body {
   @include flexRowCenter;
   padding: 3rem;
-}
 
-main { 
-  background-color: $color-white;
-  height: 100%;
-  width: 100%;
+  @include respond(tab-port){
+    padding: 0;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -76,4 +74,11 @@ a {
 
 i{
   color: $color-primary;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: $default-border-radius;
 }

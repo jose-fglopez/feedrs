@@ -1,0 +1,37 @@
+.article-card {
+
+    display: grid;
+    grid-template-columns: 8rem 1fr minmax(min-content, auto);
+    grid-template-rows: 1fr 2fr 2fr;
+    gap: 1rem;
+    border-radius: $default-border-radius;
+    cursor: pointer;
+
+    &__img {
+        grid-column: 1/1;
+        grid-row: 1/-1;
+    }
+
+    &__category {
+        color: $color-gray-light;
+        @include clamp(1);
+    }
+
+    &__title {
+        font-size: 1rem;
+        grid-column: 2/-1;
+        @include clamp(2);
+    }
+
+    &__date {
+        text-align: end;
+        color: $color-gray-light;
+    }
+
+    &__description {
+        grid-column: 2/-1;
+        @include clamp(2);
+        color: $color-gray-light;
+    }
+
+}
